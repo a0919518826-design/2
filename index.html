@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暖霧｜命定眉型測驗</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Noto Sans TC",Arial,sans-serif;
+  background:linear-gradient(180deg,#fff1ee,#fffaf8);
+  color:#5c4038;
+}
+.wrap{
+  max-width:720px;
+  margin:auto;
+  padding:24px;
+}
+.card{
+  background:#fff;
+  border-radius:28px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(180,100,90,.18);
+}
+h1{
+  text-align:center;
+  color:#b86f62;
+  font-size:32px;
+}
+.sub{
+  text-align:center;
+  color:#8a6a62;
+}
+.question{
+  background:#fff7f5;
+  padding:18px;
+  margin:18px 0;
+  border-radius:18px;
+  border:1px solid #f0d0c8;
+}
+.question b{
+  color:#7a4c43;
+}
+label{
+  display:block;
+  background:#fff;
+  margin:10px 0;
+  padding:13px;
+  border-radius:14px;
+  border:1px solid #f3d8d1;
+  cursor:pointer;
+}
+label:hover{
+  background:#ffece6;
+}
+button{
+  width:100%;
+  background:#c98276;
+  color:white;
+  border:0;
+  padding:16px;
+  border-radius:999px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:15px;
+}
+button:hover{
+  background:#b86f62;
+}
+.result{
+  display:none;
+  margin-top:24px;
+  background:#fff0eb;
+  border-radius:22px;
+  padding:24px;
+  text-align:center;
+}
+.result h2{
+  color:#b86f62;
+}
+.coupon{
+  margin-top:18px;
+  background:white;
+  border:2px dashed #c98276;
+  border-radius:18px;
+  padding:16px;
+}
+a{
+  color:white;
+  text-decoration:none;
+}
+.lineBtn{
+  display:inline-block;
+  margin-top:16px;
+  background:#06c755;
+  padding:13px 28px;
+  border-radius:999px;
+  font-weight:bold;
+}
+.footer{
+  text-align:center;
+  margin-top:20px;
+  color:#9a746b;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <h1>🌸 暖霧｜命定眉型測驗</h1>
+    <p class="sub">回答 5 題，測出最適合你的霧眉風格</p>
+
+    <div class="question">
+      <b>1. 你喜歡哪種妝感？</b>
+      <label><input type="radio" name="q1" value="natural"> 自然乾淨，像天生好氣色</label>
+      <label><input type="radio" name="q1" value="korean"> 韓系溫柔，有氣質</label>
+      <label><input type="radio" name="q1" value="elegant"> 精緻高級，五官更立體</label>
+      <label><input type="radio" name="q1" value="sweet"> 甜美減齡，看起來有精神</label>
+    </div>
+
+    <div class="question">
+      <b>2. 你的眉毛困擾是？</b>
+      <label><input type="radio" name="q2" value="natural"> 眉毛稀疏</label>
+      <label><input type="radio" name="q2" value="korean"> 眉型不明顯</label>
+      <label><input type="radio" name="q2" value="elegant"> 左右不對稱</label>
+      <label><input type="radio" name="q2" value="sweet"> 每天畫眉很麻煩</label>
+    </div>
+
+    <div class="question">
+      <b>3. 你希望給人的第一印象？</b>
+      <label><input type="radio" name="q3" value="natural"> 親切自然</label>
+      <label><input type="radio" name="q3" value="korean"> 溫柔氣質</label>
+      <label><input type="radio" name="q3" value="elegant"> 自信高級</label>
+      <label><input type="radio" name="q3" value="sweet"> 年輕有活力</label>
+    </div>
+
+    <div class="question">
+      <b>4. 你平常畫眉毛需要多久？</b>
+      <label><input type="radio" name="q4" value="natural"> 幾乎不用畫</label>
+      <label><input type="radio" name="q4" value="korean"> 5 分鐘內</label>
+      <label><input type="radio" name="q4" value="elegant"> 10 分鐘以上</label>
+      <label><input type="radio" name="q4" value="sweet"> 每天都畫不好</label>
+    </div>
+
+    <div class="question">
+      <b>5. 你最想透過霧眉改善什麼？</b>
+      <label><input type="radio" name="q5" value="natural"> 素顏也有精神</label>
+      <label><input type="radio" name="q5" value="korean"> 整體更溫柔</label>
+      <label><input type="radio" name="q5" value="elegant"> 五官更立體</label>
+      <label><input type="radio" name="q5" value="sweet"> 省下化妝時間</label>
+    </div>
+
+    <button onclick="showResult()">查看我的命定眉型</button>
+
+    <div class="result" id="resultBox">
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+
+      <div class="coupon">
+        🎁 截圖測驗結果，私訊「暖霧」<br>
+        可領取專屬眉型諮詢優惠
+      </div>
+
+      <a class="lineBtn" href="https://line.me/R/ti/p/@你的LINEID" target="_blank">
+        立即預約諮詢
+      </a>
+    </div>
+
+    <p class="footer">暖霧｜自然霧眉・眉型設計・專業美感諮詢</p>
+  </div>
+</div>
+
+<script>
+function showResult(){
+  var questions=["q1","q2","q3","q4","q5"];
+  var score={
+    natural:0,
+    korean:0,
+    elegant:0,
+    sweet:0
+  };
+
+  for(var i=0;i<questions.length;i++){
+    var answer=document.querySelector('input[name="'+questions[i]+'"]:checked');
+    if(!answer){
+      alert("請先完成所有題目喔！");
+      return;
+    }
+    score[answer.value]++;
+  }
+
+  var topType="natural";
+  for(var type in score){
+    if(score[type]>score[topType]){
+      topType=type;
+    }
+  }
+
+  var data={
+    natural:{
+      title:"🌿 自然柔霧眉",
+      text:"你適合自然、不厚重的柔霧眉，讓素顏看起來乾淨、有精神，又不會太濃。"
+    },
+    korean:{
+      title:"🌸 韓系氣質眉",
+      text:"你適合柔和線條的韓系眉型，能讓整體五官更溫柔、更有氣質。"
+    },
+    elegant:{
+      title:"👑 高級立體眉",
+      text:"你適合輪廓感明顯一點的眉型，可以修飾臉型，讓五官更精緻。"
+    },
+    sweet:{
+      title:"💖 元氣甜美眉",
+      text:"你適合親和、減齡感的眉型，看起來更年輕、有活力，也能省下每天畫眉時間。"
+    }
+  };
+
+  document.getElementById("resultTitle").innerText=data[topType].title;
+  document.getElementById("resultText").innerText=data[topType].text;
+  document.getElementById("resultBox").style.display="block";
+  document.getElementById("resultBox").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
